@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _blehcoinALERT_H_
-#define _blehcoinALERT_H_ 1
+#ifndef _shitcoinALERT_H_
+#define _shitcoinALERT_H_ 1
 
 #include <set>
 #include <string>

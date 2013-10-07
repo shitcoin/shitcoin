@@ -1,8 +1,8 @@
-// Copyright (c) 2013 The blehcoin developer
+// Copyright (c) 2013 The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_VERSION_H
-#define blehcoin_VERSION_H
+#ifndef shitcoin_VERSION_H
+#define shitcoin_VERSION_H
 
 #include "clientversion.h"
 #include <string>
@@ -44,9 +44,9 @@ static const int BIP0031_VERSION = 60000;
 // "mempool" command, enhanced "getdata" behavior starts with this version:
 static const int MEMPOOL_GD_VERSION = 60002;
 
-#define DISPLAY_VERSION_MAJOR       0
-#define DISPLAY_VERSION_MINOR       1
-#define DISPLAY_VERSION_REVISION    3
+#define DISPLAY_VERSION_MAJOR       1
+#define DISPLAY_VERSION_MINOR       0
+#define DISPLAY_VERSION_REVISION    0
 #define DISPLAY_VERSION_BUILD       0
 
 #endif

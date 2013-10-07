@@ -22,7 +22,7 @@ public:
     qint64 amount;
 };
 
-/** Interface to blehcoin wallet from Qt view code. */
+/** Interface to shitcoin wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -77,7 +77,7 @@ public:
         QString hex; // is filled with the transaction hash if status is "OK"
     };
 
-    // Send coins to a list of recipients
+    // Give A Shit to a list of recipients
     SendCoinsReturn sendCoins(const QString &txcomment, const QList<SendCoinsRecipient> &recipients);
 
     // Wallet encryption

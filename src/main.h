@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_MAIN_H
-#define blehcoin_MAIN_H
+#ifndef shitcoin_MAIN_H
+#define shitcoin_MAIN_H
 
 #include "bignum.h"
 #include "sync.h"
@@ -29,13 +29,13 @@ static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
-static const int64 MIN_TX_FEE = 0.0001 * COIN;
+static const int64 MIN_TX_FEE = 10000 * COIN;
 static const int64 MIN_RELAY_TX_FEE = MIN_TX_FEE;
-static const int64 MAX_MONEY = 1500000000 * COIN;//1.5 billion
-static const int64 MAX_MINT_PROOF_OF_WORK = 5 * COIN;	//5 Coin per block
-static const int64 MAX_MINT_PROOF_OF_STAKE = 0.05 * MAX_MINT_PROOF_OF_WORK;	//5% annual interest
+static const int64 MAX_MONEY = 100000000000000 * COIN;
+static const int64 MAX_MINT_PROOF_OF_WORK = 500000000 * COIN;	//5 Coin per block
+static const int64 MAX_MINT_PROOF_OF_STAKE = 0.00001 * MAX_MINT_PROOF_OF_WORK;	//5% annual interest
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
-static const unsigned int MAX_TX_COMMENT_LEN = 268; // blehcoin: 256 bytes + 12 little extra
+static const unsigned int MAX_TX_COMMENT_LEN = 268; // shitcoin: 256 bytes + 12 little extra
 
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
@@ -47,8 +47,8 @@ static const int fHaveUPnP = true;
 static const int fHaveUPnP = false;
 #endif
 
-static const uint256 hashGenesisBlockOfficial("0x");
-static const uint256 hashGenesisBlockTestNet("0x");
+static const uint256 hashGenesisBlockOfficial("0x00000857a6ea8ce0b7a3c7a56766bc0803d360d8476937f7ffc508bdef9d6f9a");
+static const uint256 hashGenesisBlockTestNet("0x00000857a6ea8ce0b7a3c7a56766bc0803d360d8476937f7ffc508bdef9d6f9a");
 
 static const int64 nMaxClockDrift = 2 * 60 * 60;        // two hours
 
@@ -104,7 +104,7 @@ CBlockIndex* FindBlockByHeight(int nHeight);
 bool ProcessMessages(CNode* pfrom);
 bool SendMessages(CNode* pto, bool fSendTrickle);
 bool LoadExternalBlockFile(FILE* fileIn);
-void Generateblehcoins(bool fGenerate, CWallet* pwallet);
+void Generateshitcoins(bool fGenerate, CWallet* pwallet);
 CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake=false);
 void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& nExtraNonce);
 void FormatHashBuffers(CBlock* pblock, char* pmidstate, char* pdata, char* phash1);
@@ -119,7 +119,7 @@ std::string GetWarnings(std::string strFor);
 bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock);
 uint256 WantedByOrphan(const CBlock* pblockOrphan);
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
-void blehcoinMiner(CWallet *pwallet, bool fProofOfStake);
+void shitcoinMiner(CWallet *pwallet, bool fProofOfStake);
 void ResendWalletTransactions();
 
 
@@ -559,7 +559,7 @@ public:
      */
     unsigned int GetP2SHSigOpCount(const MapPrevTx& mapInputs) const;
 
-    /** Amount of blehcoins spent by this transaction.
+    /** Amount of shitcoins spent by this transaction.
         @return sum of all outputs (note: does not include fees)
      */
     int64 GetValueOut() const
@@ -574,7 +574,7 @@ public:
         return nValueOut;
     }
 
-    /** Amount of blehcoins coming in to this transaction
+    /** Amount of shitcoins coming in to this transaction
         Note that lightweight clients may not know anything besides the hash of previous transactions,
         so may not be able to calculate this.
 
@@ -920,7 +920,7 @@ public:
     // ppcoin: entropy bit for stake modifier if chosen by modifier
     unsigned int GetStakeEntropyBit(unsigned int nHeight) const
     {
-        // Protocol switch to support p2pool at blehcoin block #9689
+        // Protocol switch to support p2pool at shitcoin block #9689
         if (nHeight >= 9689 || fTestNet)
         {
             // Take last bit of block hash as entropy bit
@@ -929,7 +929,7 @@ public:
                 printf("GetStakeEntropyBit: nHeight=%u hashBlock=%s nEntropyBit=%u\n", nHeight, GetHash().ToString().c_str(), nEntropyBit);
             return nEntropyBit;
         }
-        // Before blehcoin block #9689 - old protocol
+        // Before shitcoin block #9689 - old protocol
         uint160 hashSig = Hash160(vchBlockSig);
         if (fDebug && GetBoolArg("-printstakemodifier"))
             printf("GetStakeEntropyBit: hashSig=%s", hashSig.ToString().c_str());

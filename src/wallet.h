@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_WALLET_H
-#define blehcoin_WALLET_H
+#ifndef shitcoin_WALLET_H
+#define shitcoin_WALLET_H
 
 #include <string>
 #include <vector>

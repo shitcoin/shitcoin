@@ -2,7 +2,7 @@
 #include "ui_overviewpage.h"
 
 #include "walletmodel.h"
-#include "blehcoinunits.h"
+#include "shitcoinunits.h"
 #include "optionsmodel.h"
 #include "transactiontablemodel.h"
 #include "transactionfilterproxy.h"
@@ -19,7 +19,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate(): QAbstractItemDelegate(), unit(blehcoinUnits::BTC)
+    TxViewDelegate(): QAbstractItemDelegate(), unit(shitcoinUnits::BTC)
     {
 
     }
@@ -66,7 +66,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-        QString amountText = blehcoinUnits::formatWithUnit(unit, amount, true);
+        QString amountText = shitcoinUnits::formatWithUnit(unit, amount, true);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -115,7 +115,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     QPalette  p;
     p.setColor(QPalette::WindowText,Qt::red);
-    ui->label_blehcoin_Intro->setPalette(p);
+    ui->label_shitcoin_Intro->setPalette(p);
 
 
     // start with displaying the "out of sync" warnings
@@ -140,10 +140,10 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     currentStake = stake;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
-    ui->labelBalance->setText(blehcoinUnits::formatWithUnit(unit, balance));
-    ui->labelStake->setText(blehcoinUnits::formatWithUnit(unit, stake));
-    ui->labelUnconfirmed->setText(blehcoinUnits::formatWithUnit(unit, unconfirmedBalance));
-    ui->labelImmature->setText(blehcoinUnits::formatWithUnit(unit, immatureBalance));
+    ui->labelBalance->setText(shitcoinUnits::formatWithUnit(unit, balance));
+    ui->labelStake->setText(shitcoinUnits::formatWithUnit(unit, stake));
+    ui->labelUnconfirmed->setText(shitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
+    ui->labelImmature->setText(shitcoinUnits::formatWithUnit(unit, immatureBalance));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

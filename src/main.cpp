@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,18 +36,15 @@ set<pair<COutPoint, unsigned int> > setStakeSeen;
 uint256 hashGenesisBlock = hashGenesisBlockOfficial;
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20);
 static CBigNum bnProofOfStakeLimit(~uint256(0) >> 24);
-static CBigNum bnProofOfStakeHardLimit(~uint256(0) >> 30);
-
-
+static CBigNum bnProofOfStakeHardLimit(~uint256(0) >> 30); 
 static CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 static CBigNum bnProofOfStakeLimitTestNet(~uint256(0) >> 20);
-
-unsigned int nStakeMinAge = 60 * 60 * 24 * 30; // minimum age for coin age
-unsigned int nStakeMaxAge = 60 * 60 * 24 * 90; // stake age of full weight
-unsigned int nStakeTargetSpacing = 1 * 60; // 60 seconds block spacing
-const int64 nChainStartTime = 1376215269; 
+unsigned int nStakeMinAge = 60 * 60 * 24 * 69; //90 days minimum age for coin age
+unsigned int nStakeMaxAge = 60 * 60 * 24 * 187; //180 days stake age of full weight
+unsigned int nStakeTargetSpacing = 10; // 10 seconds block spacing
+const int64 nChainStartTime = 1380478380; 
 const int64 nTestNetStartTime = nChainStartTime; 
-int nCoinbaseMaturity = 10; // mining need 30 confirm
+int nCoinbaseMaturity = 80; // minted blocks need need 100 confirm
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 CBigNum bnBestChainTrust = 0;
@@ -69,7 +66,7 @@ map<uint256, map<uint256, CDataStream*> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "blehcoin Signed Message:\n";
+const string strMessageMagic = "shitcoin Signed Message:\n";
 
 double dHashesPerSec;
 int64 nHPSTimerStart;
@@ -943,10 +940,10 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
     return pblockOrphan->hashPrevBlock;
 }
 
-// miner's coin base reward based on nBits
 int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
     int64 nSubsidy = 500000000 * COIN;
+    int64 nMinimumsubsidy = 1000000 * COIN;
 
     // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 2000);
@@ -960,7 +957,6 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 	}
     return nSubsidy + nFees;
 }
-
 // miner's coin stake reward based on nBits and coin age spent (coin-days)
 int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTime)
 {
@@ -975,7 +971,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
     CBigNum bnTargetLimit = bnProofOfStakeLimit;
     bnTargetLimit.SetCompact(bnTargetLimit.GetCompact());
 
-    // blehcoin: reward for coin-year is cut in half every 64x multiply of PoS difficulty
+    // shitcoin: reward for coin-year is cut in half every 64x multiply of PoS difficulty
     // A reasonably continuous curve is used to avoid shock to market
     // (nRewardCoinYearLimit / nRewardCoinYear) ** 4 == bnProofOfStakeLimit / bnTarget
     //
@@ -1007,8 +1003,8 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
     return nSubsidy;
 }
 
-static const int64 nTargetTimespan = 0.16 * 24 * 60 * 60;  // 4-hour
-static const int64 nTargetSpacingWorkMax = 12 * nStakeTargetSpacing; // 2-hour
+static const int64 nTargetTimespan = 0.125 * 24 * 60 * 60;  
+static const int64 nTargetSpacingWorkMax = 12 * nStakeTargetSpacing; 
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -1342,7 +1338,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs,
 {
     // Take over previous transactions' spent pointers
     // fBlock is true when this is called from AcceptBlock when a new best-block is added to the blockchain
-    // fMiner is true when called from the internal blehcoin miner
+    // fMiner is true when called from the internal shitcoin miner
     // ... both are false when called from CTransaction::AcceptToMemoryPool
     if (!IsCoinBase())
     {
@@ -1541,8 +1537,8 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes in their
     // initial block download.
-    bool fEnforceBIP30 = true; // Always active in blehcoin
-    bool fStrictPayToScriptHash = true; // Always active in blehcoin
+    bool fEnforceBIP30 = true; // Always active in shitcoin
+    bool fStrictPayToScriptHash = true; // Always active in shitcoin
 
     //// issue here: it doesn't know the version
     unsigned int nTxPos;
@@ -1618,7 +1614,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     if (!txdb.WriteBlockIndex(CDiskBlockIndex(pindex)))
         return error("Connect() : WriteBlockIndex for pindex failed");
 
-    // ppcoin: fees are not collected by miners as in blehcoin
+    // ppcoin: fees are not collected by miners as in shitcoin
     // ppcoin: fees are destroyed to compensate the entire network
     if (fDebug && GetBoolArg("-printcreation"))
         printf("ConnectBlock() : destroy=%s nFees=%"PRI64d"\n", FormatMoney(nFees).c_str(), nFees);
@@ -2129,8 +2125,8 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot) const
         return DoS(100, error("CheckBlock() : hashMerkleRoot mismatch"));
 
     // ppcoin: check block signature
-    if (!CheckBlockSignature())
-        return DoS(100, error("CheckBlock() : bad block signature"));
+    //if (!CheckBlockSignature())
+    //    return DoS(100, error("CheckBlock() : bad block signature"));
 
     return true;
 }
@@ -2465,7 +2461,7 @@ bool CheckDiskSpace(uint64 nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low!");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "blehcoin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "shitcoin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }
@@ -2553,8 +2549,8 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
 
-        // Genesis block
-        const char* pszTimestamp = "blehcoin - yea he did.";
+// Genesis block
+        const char* pszTimestamp = "ShitCoin - because Muddafudda deserves another coin to bitch about.";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2562,7 +2558,7 @@ bool LoadBlockIndex(bool fAllowNew)
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].SetEmpty();
         //txNew.vout[0].scriptPubKey = CScript() << ParseHex(pszMainKey) << OP_CHECKSIG;
-        txNew.strTxComment = "text:blehcoin genesis block";
+        txNew.strTxComment = "text:shitcoin genesis block";
 
 
         CBlock block;
@@ -2572,7 +2568,7 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nVersion = 1;
         block.nTime    = nChainStartTime;;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 0;
+        block.nNonce   = 754557;
 
         if (IsCalculatingGenesisBlockHash && (block.GetHash() != hashGenesisBlock)) {
 			block.nNonce = 0;
@@ -2596,6 +2592,7 @@ bool LoadBlockIndex(bool fAllowNew)
         }
 
 
+
         //// debug print
         block.print();
         printf("block.GetHash() == %s\n", block.GetHash().ToString().c_str());
@@ -2604,7 +2601,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nNonce = %u \n", block.nNonce);
         printf("block.nBits = %u \n", block.nBits);
 
-        assert(block.hashMerkleRoot == uint256("0x"));
+        assert(block.hashMerkleRoot == uint256("0xfd279f80328aca0f7112298b40f8551d8ae4182bef3ac8ee95f6b69c1102a6de"));
         block.print();
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
         assert(block.CheckBlock());
@@ -2823,11 +2820,11 @@ string GetWarnings(string strFor)
 
     // ppcoin: should not enter safe mode for longer invalid chain
     // ppcoin: if sync-checkpoint is too old do not enter safe mode
-    if (Checkpoints::IsSyncCheckpointTooOld(60 * 60 * 24 * 100) && !fTestNet && !IsInitialBlockDownload())
-    {
-        nPriority = 100;
-        //strStatusBar = "WARNING: Checkpoint is too old. Wait for block chain to download, or notify developers.";
-    }
+    //if (Checkpoints::IsSyncCheckpointTooOld(60 * 60 * 24 * 100) && !fTestNet && !IsInitialBlockDownload())
+    //{
+    //    nPriority = 100;
+    //    //strStatusBar = "WARNING: Checkpoint is too old. Wait for block chain to download, or notify developers.";
+    //}
 
     // ppcoin: if detected invalid checkpoint enter safe mode
     if (Checkpoints::hashInvalidCheckpoint != 0)
@@ -2903,7 +2900,7 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xe4, 0xe8, 0xe9, 0xe5 };
+unsigned char pchMessageStart[4] = { 0xe4, 0xe9, 0xe9, 0xe8 };
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {
@@ -3863,7 +3860,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// blehcoinMiner
+// shitcoinMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
@@ -4342,10 +4339,10 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
 
     if (hash > hashTarget && pblock->IsProofOfWork())
-        return error("blehcoinMiner : proof-of-work not meeting target");
+        return error("shitcoinMiner : proof-of-work not meeting target");
 
     //// debug print
-    printf("blehcoinMiner:\n");
+    printf("shitcoinMiner:\n");
     printf("new block found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -4354,7 +4351,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != hashBestChain)
-            return error("blehcoinMiner : generated block is stale");
+            return error("shitcoinMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -4367,31 +4364,31 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
         // Process this block the same as if we had received it from another node
         if (!ProcessBlock(NULL, pblock))
-            return error("blehcoinMiner : ProcessBlock, block not accepted");
+            return error("shitcoinMiner : ProcessBlock, block not accepted");
     }
 
     return true;
 }
 
-void static ThreadblehcoinMiner(void* parg);
+void static ThreadshitcoinMiner(void* parg);
 
-static bool fGenerateblehcoins = false;
+static bool fGenerateshitcoins = false;
 static bool fLimitProcessors = false;
 static int nLimitProcessors = -1;
 
-void blehcoinMiner(CWallet *pwallet, bool fProofOfStake)
+void shitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 {
     printf("CPUMiner started for proof-of-%s\n", fProofOfStake? "stake" : "work");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("blehcoin-miner");
+    RenameThread("shitcoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
-    while (fGenerateblehcoins || fProofOfStake)
+    while (fGenerateshitcoins || fProofOfStake)
     {
         if (fShutdown)
             return;
@@ -4400,7 +4397,7 @@ void blehcoinMiner(CWallet *pwallet, bool fProofOfStake)
             Sleep(1000);
             if (fShutdown)
                 return;
-            if ((!fGenerateblehcoins) && !fProofOfStake)
+            if ((!fGenerateshitcoins) && !fProofOfStake)
                 return;
         }
 
@@ -4442,7 +4439,7 @@ void blehcoinMiner(CWallet *pwallet, bool fProofOfStake)
             continue;
         }
 
-        printf("Running blehcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        printf("Running shitcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -4525,7 +4522,7 @@ void blehcoinMiner(CWallet *pwallet, bool fProofOfStake)
             // Check for stop or if block needs to be rebuilt
             if (fShutdown)
                 return;
-            if (!fGenerateblehcoins)
+            if (!fGenerateshitcoins)
                 return;
             if (fLimitProcessors && vnThreadsRunning[THREAD_MINER] > nLimitProcessors)
                 return;
@@ -4550,35 +4547,35 @@ void blehcoinMiner(CWallet *pwallet, bool fProofOfStake)
     }
 }
 
-void static ThreadblehcoinMiner(void* parg)
+void static ThreadshitcoinMiner(void* parg)
 {
     CWallet* pwallet = (CWallet*)parg;
     try
     {
         vnThreadsRunning[THREAD_MINER]++;
-        blehcoinMiner(pwallet, false);
+        shitcoinMiner(pwallet, false);
         vnThreadsRunning[THREAD_MINER]--;
     }
     catch (std::exception& e) {
         vnThreadsRunning[THREAD_MINER]--;
-        PrintException(&e, "ThreadblehcoinMiner()");
+        PrintException(&e, "ThreadshitcoinMiner()");
     } catch (...) {
         vnThreadsRunning[THREAD_MINER]--;
-        PrintException(NULL, "ThreadblehcoinMiner()");
+        PrintException(NULL, "ThreadshitcoinMiner()");
     }
     nHPSTimerStart = 0;
     if (vnThreadsRunning[THREAD_MINER] == 0)
         dHashesPerSec = 0;
-    printf("ThreadblehcoinMiner exiting, %d threads remaining\n", vnThreadsRunning[THREAD_MINER]);
+    printf("ThreadshitcoinMiner exiting, %d threads remaining\n", vnThreadsRunning[THREAD_MINER]);
 }
 
 
-void Generateblehcoins(bool fGenerate, CWallet* pwallet)
+void Generateshitcoins(bool fGenerate, CWallet* pwallet)
 {
-    fGenerateblehcoins = fGenerate;
+    fGenerateshitcoins = fGenerate;
     nLimitProcessors = GetArg("-genproclimit", -1);
     if (nLimitProcessors == 0)
-        fGenerateblehcoins = false;
+        fGenerateshitcoins = false;
     fLimitProcessors = (nLimitProcessors != -1);
 
     if (fGenerate)
@@ -4590,12 +4587,13 @@ void Generateblehcoins(bool fGenerate, CWallet* pwallet)
         if (fLimitProcessors && nProcessors > nLimitProcessors)
             nProcessors = nLimitProcessors;
         int nAddThreads = nProcessors - vnThreadsRunning[THREAD_MINER];
-        printf("Starting %d blehcoinMiner threads\n", nAddThreads);
+        printf("Starting %d shitcoinMiner threads\n", nAddThreads);
         for (int i = 0; i < nAddThreads; i++)
         {
-            if (!NewThread(ThreadblehcoinMiner, pwallet))
-                printf("Error: NewThread(ThreadblehcoinMiner) failed\n");
+            if (!NewThread(ThreadshitcoinMiner, pwallet))
+                printf("Error: NewThread(ThreadshitcoinMiner) failed\n");
             Sleep(10);
         }
     }
 }
+//r3wt wuz here

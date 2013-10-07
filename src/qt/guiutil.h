@@ -15,7 +15,7 @@ class QAbstractItemView;
 QT_END_NAMESPACE
 class SendCoinsRecipient;
 
-/** Utility functions used by the blehcoin Qt UI.
+/** Utility functions used by the shitcoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -23,17 +23,17 @@ namespace GUIUtil
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
-    // Render blehcoin addresses in monospace font
-    QFont blehcoinAddressFont();
+    // Render shitcoin addresses in monospace font
+    QFont shitcoinAddressFont();
 
     // Set up widgets for address and amounts
     void setupAddressWidget(QLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "blehcoin:" URI into recipient object, return true on successful parsing
-    // See blehcoin URI definition discussion here: https://bitcointalk.org/index.php?topic=33490.0
-    bool parseblehcoinURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseblehcoinURI(QString uri, SendCoinsRecipient *out);
+    // Parse "shitcoin:" URI into recipient object, return true on successful parsing
+    // See shitcoin URI definition discussion here: https://bitcointalk.org/index.php?topic=33490.0
+    bool parseshitcoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseshitcoinURI(QString uri, SendCoinsRecipient *out);
 
     // HTML escaping for rich text controls
     QString HtmlEscape(const QString& str, bool fMultiLine=false);
@@ -95,7 +95,7 @@ namespace GUIUtil
     bool GetStartOnSystemStartup();
     bool SetStartOnSystemStartup(bool fAutoStart);
 
-    /** Help message for blehcoin-Qt, shown with --help. */
+    /** Help message for shitcoin-Qt, shown with --help. */
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT

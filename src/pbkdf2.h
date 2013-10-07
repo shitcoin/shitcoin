@@ -1,4 +1,4 @@
-// Copyright (c) 2013 blehcoin Developers
+// Copyright (c) 2013 shitcoin Developers
 
 #ifndef PBKDF2_H
 #define PBKDF2_H

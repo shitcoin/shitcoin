@@ -1,5 +1,5 @@
 #include "optionsmodel.h"
-#include "blehcoinunits.h"
+#include "shitcoinunits.h"
 #include <QSettings>
 
 #include "init.h"
@@ -41,14 +41,14 @@ void OptionsModel::Init()
     QSettings settings;
 
     // These are Qt-only settings:
-    nDisplayUnit = settings.value("nDisplayUnit", blehcoinUnits::BTC).toInt();
+    nDisplayUnit = settings.value("nDisplayUnit", shitcoinUnits::BTC).toInt();
     bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
     fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
     language = settings.value("language", "").toString();
 
-    // These are shared with core blehcoin; we want
+    // These are shared with core shitcoin; we want
     // command-line options to override the GUI settings:
     if (settings.contains("fUseUPnP"))
         SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());

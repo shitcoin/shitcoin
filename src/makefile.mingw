@@ -68,7 +68,7 @@ OBJS= \
     obj/main.o \
     obj/net.o \
     obj/protocol.o \
-    obj/blehcoinrpc.o \
+    obj/shitcoinrpc.o \
     obj/rpcdump.o \
     obj/rpcnet.o \
     obj/rpcmining.o \
@@ -83,15 +83,15 @@ OBJS= \
     obj/noui.o \
     obj/kernel.o
 
-all: blehcoind.exe
+all: shitcoind.exe
 
-test check: test_blehcoin.exe FORCE
-	test_blehcoin.exe
+test check: test_shitcoin.exe FORCE
+	test_shitcoin.exe
 
 obj/%.o: %.cpp $(HEADERS)
 	g++ -c $(CFLAGS) -o $@ $<
 
-blehcoind.exe: $(OBJS:obj/%=obj/%)
+shitcoind.exe: $(OBJS:obj/%=obj/%)
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
@@ -99,11 +99,11 @@ TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
 obj-test/%.o: test/%.cpp $(HEADERS)
 	g++ -c $(TESTDEFS) $(CFLAGS) -o $@ $<
 
-test_blehcoin.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
+test_shitcoin.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework $(LIBS)
 
 clean:
-	-del /Q blehcoind test_blehcoin
+	-del /Q shitcoind test_shitcoin
 	-del /Q obj\*
 	-del /Q obj-test\*
 

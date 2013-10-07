@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_DB_H
-#define blehcoin_DB_H
+#ifndef shitcoin_DB_H
+#define shitcoin_DB_H
 
 #include "main.h"
 
@@ -363,4 +363,4 @@ public:
     bool Read(CAddrMan& addr);
 };
 
-#endif // blehcoin_DB_H
+#endif // shitcoin_DB_H

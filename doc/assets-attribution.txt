@@ -38,7 +38,7 @@ Designer: http://www.everaldo.com
 Icon Pack: Crystal SVG
 License: LGPL
 
-Icon: src/qt/res/icons/blehcoin.png, src/qt/res/icons/toolbar.png
+Icon: src/qt/res/icons/shitcoin.png, src/qt/res/icons/toolbar.png
 Designer: Mao
 License: Public Domain
 Site:

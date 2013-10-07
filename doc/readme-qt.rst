@@ -1,4 +1,4 @@
-blehcoin-Qt: Qt4 GUI for blehcoin
+shitcoin-Qt: Qt4 GUI for shitcoin
 ================================
 
 Build instructions
@@ -23,9 +23,9 @@ then execute the following:
     qmake
     make
 
-Alternatively, install `Qt Creator`_ and open the `blehcoin-qt.pro` file.
+Alternatively, install `Qt Creator`_ and open the `shitcoin-qt.pro` file.
 
-An executable named `blehcoin-qt` will be built.
+An executable named `shitcoin-qt` will be built.
 
 .. _`Qt Creator`: http://qt.nokia.com/downloads/
 
@@ -74,7 +74,7 @@ Build configuration options
 UPnP port forwarding
 ---------------------
 
-To use UPnP for port forwarding behind a NAT router (recommended, as more connections overall allow for a faster and more stable blehcoin experience), pass the following argument to qmake:
+To use UPnP for port forwarding behind a NAT router (recommended, as more connections overall allow for a faster and more stable shitcoin experience), pass the following argument to qmake:
 
 ::
 
@@ -122,9 +122,9 @@ flag to qmake to control this:
 Berkely DB version warning
 ==========================
 
-A warning for people using the *static binary* version of blehcoin on a Linux/UNIX-ish system (tl;dr: **Berkely DB databases are not forward compatible**).
+A warning for people using the *static binary* version of shitcoin on a Linux/UNIX-ish system (tl;dr: **Berkely DB databases are not forward compatible**).
 
-The static binary version of blehcoin is linked against libdb4.8 (see also `this Debian issue`_).
+The static binary version of shitcoin is linked against libdb4.8 (see also `this Debian issue`_).
 
 Now the nasty thing is that databases from 5.X are not compatible with 4.X.
 
@@ -139,7 +139,7 @@ Ubuntu 11.10 warning
 ====================
 
 Ubuntu 11.10 has a package called 'qt-at-spi' installed by default.  At the time of writing, having that package
-installed causes blehcoin-qt to crash intermittently.  The issue has been reported as `launchpad bug 857790`_, but
+installed causes shitcoin-qt to crash intermittently.  The issue has been reported as `launchpad bug 857790`_, but
 isn't yet fixed.
 
 Until the bug is fixed, you can remove the qt-at-spi package to work around the problem, though this will presumably

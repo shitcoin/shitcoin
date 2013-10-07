@@ -13,7 +13,7 @@ class QDateTime;
 class QTimer;
 QT_END_NAMESPACE
 
-/** Model for blehcoin network client. */
+/** Model for shitcoin network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT

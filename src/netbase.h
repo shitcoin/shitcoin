@@ -1,8 +1,8 @@
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_NETBASE_H
-#define blehcoin_NETBASE_H
+#ifndef shitcoin_NETBASE_H
+#define shitcoin_NETBASE_H
 
 #include <string>
 #include <vector>

@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_WALLETDB_H
-#define blehcoin_WALLETDB_H
+#ifndef shitcoin_WALLETDB_H
+#define shitcoin_WALLETDB_H
 
 #include "db.h"
 #include "base58.h"
@@ -160,4 +160,4 @@ public:
     static bool Recover(CDBEnv& dbenv, std::string filename);
 };
 
-#endif // blehcoin_WALLETDB_H
+#endif // shitcoin_WALLETDB_H

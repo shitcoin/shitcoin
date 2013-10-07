@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About blehcoin</string>
+   <string>About shitcoin</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -23,7 +23,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../blehcoin.qrc">:/images/about</pixmap>
+      <pixmap resource="../shitcoin.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -50,7 +50,7 @@
           <cursorShape>IBeamCursor</cursorShape>
          </property>
          <property name="text">
-          <string>&lt;b&gt;blehcoin&lt;/b&gt; version</string>
+          <string>&lt;b&gt;shitcoin&lt;/b&gt; version</string>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -91,8 +91,8 @@
         <cursorShape>IBeamCursor</cursorShape>
        </property>
        <property name="text">
-        <string>Copyright © 2013 The blehcoin Foundation
-         http://www.blehcoin.com</string>
+        <string>Copyright © 2013 The Shitcoin Foundation
+         http://www.shitcoin.com</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -106,7 +106,7 @@
        </property>
        <property name="text">
         <string>
-This is experimental software. If you don't treat it as such, you're likely to put an eye out!
+This is experimental software, if you don't like it--you can eat the peanuts outta my shit.
 
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -148,7 +148,7 @@ This product includes software developed by the OpenSSL Project for use in the O
   </layout>
  </widget>
  <resources>
-  <include location="../blehcoin.qrc"/>
+  <include location="../shitcoin.qrc"/>
  </resources>
  <connections>
   <connection>

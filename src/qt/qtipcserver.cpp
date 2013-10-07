@@ -1,4 +1,4 @@
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,11 +42,11 @@ static bool ipcScanCmd(int argc, char *argv[], bool fRelay)
     bool fSent = false;
     for (int i = 1; i < argc; i++)
     {
-        if (boost::algorithm::istarts_with(argv[i], "blehcoin:"))
+        if (boost::algorithm::istarts_with(argv[i], "shitcoin:"))
         {
             const char *strURI = argv[i];
             try {
-                boost::interprocess::message_queue mq(boost::interprocess::open_only, blehcoinURI_QUEUE_NAME);
+                boost::interprocess::message_queue mq(boost::interprocess::open_only, shitcoinURI_QUEUE_NAME);
                 if (mq.try_send(strURI, strlen(strURI), 0))
                     fSent = true;
                 else if (fRelay)
@@ -75,7 +75,7 @@ void ipcScanRelay(int argc, char *argv[])
 static void ipcThread(void* pArg)
 {
     // Make this thread recognisable as the GUI-IPC thread
-    RenameThread("blehcoin-gui-ipc");
+    RenameThread("shitcoin-gui-ipc");
 	
     try
     {
@@ -112,7 +112,7 @@ static void ipcThread2(void* pArg)
     }
 
     // Remove message queue
-    message_queue::remove(blehcoinURI_QUEUE_NAME);
+    message_queue::remove(shitcoinURI_QUEUE_NAME);
     // Cleanup allocated memory
     delete mq;
 }
@@ -125,9 +125,9 @@ void ipcInit(int argc, char *argv[])
     unsigned int nPriority = 0;
 
     try {
-        mq = new message_queue(open_or_create, blehcoinURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
+        mq = new message_queue(open_or_create, shitcoinURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
 
-        // Make sure we don't lose any blehcoin: URIs
+        // Make sure we don't lose any shitcoin: URIs
         for (int i = 0; i < 2; i++)
         {
             ptime d = boost::posix_time::microsec_clock::universal_time() + millisec(1);
@@ -139,11 +139,11 @@ void ipcInit(int argc, char *argv[])
                 break;
         }
 
-        // Make sure only one blehcoin instance is listening
-        message_queue::remove(blehcoinURI_QUEUE_NAME);
+        // Make sure only one shitcoin instance is listening
+        message_queue::remove(shitcoinURI_QUEUE_NAME);
         delete mq;
 
-        mq = new message_queue(open_or_create, blehcoinURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
+        mq = new message_queue(open_or_create, shitcoinURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
     }
     catch (interprocess_exception &ex) {
         printf("ipcInit() - boost interprocess exception #%d: %s\n", ex.get_error_code(), ex.what());

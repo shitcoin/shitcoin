@@ -1,4 +1,4 @@
-// Copyright (c) 2013 blehcoin Developers
+// Copyright (c) 2013 shitcoin Developers
 
 #include <string.h>
 #include "pbkdf2.h"

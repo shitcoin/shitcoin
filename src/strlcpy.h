@@ -13,8 +13,8 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-#ifndef blehcoin_STRLCPY_H
-#define blehcoin_STRLCPY_H
+#ifndef shitcoin_STRLCPY_H
+#define shitcoin_STRLCPY_H
 
 #include <stdlib.h>
 #include <string.h>

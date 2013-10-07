@@ -1,8 +1,8 @@
-// Copyright (c) 2012 The blehcoin developers
+// Copyright (c) 2012 The shitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_MRUSET_H
-#define blehcoin_MRUSET_H
+#ifndef shitcoin_MRUSET_H
+#define shitcoin_MRUSET_H
 
 #include <set>
 #include <deque>

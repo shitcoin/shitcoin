@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef blehcoin_NET_H
-#define blehcoin_NET_H
+#ifndef shitcoin_NET_H
+#define shitcoin_NET_H
 
 #include <deque>
 #include <boost/array.hpp>

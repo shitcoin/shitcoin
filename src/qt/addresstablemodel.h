@@ -20,7 +20,7 @@ public:
 
     enum ColumnIndex {
         Label = 0,   /**< User specified label */
-        Address = 1  /**< blehcoin address */
+        Address = 1  /**< shitcoin address */
     };
 
     enum RoleIndex {

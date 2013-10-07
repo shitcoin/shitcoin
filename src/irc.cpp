@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -189,7 +189,7 @@ bool GetIPFromIRC(SOCKET hSocket, string strMyName, CNetAddr& ipRet)
 void ThreadIRCSeed(void* parg)
 {
     // Make this thread recognisable as the IRC seeding thread
-    RenameThread("blehcoin-ircseed");
+    RenameThread("shitcoin-ircseed");
 
     try
     {
@@ -306,16 +306,16 @@ void ThreadIRCSeed2(void* parg)
         }
 
         if (fTestNet) {
-            Send(hSocket, "JOIN #blehcoinTEST2\r");
-            Send(hSocket, "WHO #blehcoinTEST2\r");
+            Send(hSocket, "JOIN #shitcoinTEST2\r");
+            Send(hSocket, "WHO #shitcoinTEST2\r");
         } else {
-            // randomly join #blehcoin00-#blehcoin05
+            // randomly join #shitcoin00-#shitcoin05
             // int channel_number = GetRandInt(5);
 
             // Channel number is always 0 for initial release
             int channel_number = 0;
-            Send(hSocket, strprintf("JOIN #blehcoin%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #blehcoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("JOIN #shitcoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #shitcoin%02d\r", channel_number).c_str());
         }
 
         int64 nStart = GetTime();

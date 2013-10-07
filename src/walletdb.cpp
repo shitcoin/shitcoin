@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -196,7 +196,7 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         {
             string strAddress;
             ssKey >> strAddress;
-            ssValue >> pwallet->mapAddressBook[CblehcoinAddress(strAddress).Get()];
+            ssValue >> pwallet->mapAddressBook[CshitcoinAddress(strAddress).Get()];
         }
         else if (strType == "tx")
         {
@@ -485,7 +485,7 @@ DBErrors CWalletDB::LoadWallet(CWallet* pwallet)
 void ThreadFlushWalletDB(void* parg)
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("blehcoin-wallet");
+    RenameThread("shitcoin-wallet");
 
     const string& strFile = ((const string*)parg)[0];
     static bool fOneThread;

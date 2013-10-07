@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2013  The blehcoin developer
+// Copyright (c) 2013  The shitcoin developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,8 +12,8 @@
 // - E-mail usually won't line-break if there's no punctuation to break at.
 // - Double-clicking selects the whole number as one word if it's all alphanumeric.
 //
-#ifndef blehcoin_BASE58_H
-#define blehcoin_BASE58_H
+#ifndef shitcoin_BASE58_H
+#define shitcoin_BASE58_H
 
 #include <string>
 #include <vector>
@@ -253,25 +253,25 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded blehcoin addresses.
+/** base58-encoded shitcoin addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CblehcoinAddress;
-class CblehcoinAddressVisitor : public boost::static_visitor<bool>
+class CshitcoinAddress;
+class CshitcoinAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CblehcoinAddress *addr;
+    CshitcoinAddress *addr;
 public:
-    CblehcoinAddressVisitor(CblehcoinAddress *addrIn) : addr(addrIn) { }
+    CshitcoinAddressVisitor(CshitcoinAddress *addrIn) : addr(addrIn) { }
     bool operator()(const CKeyID &id) const;
     bool operator()(const CScriptID &id) const;
     bool operator()(const CNoDestination &no) const;
 };
 
-class CblehcoinAddress : public CBase58Data
+class CshitcoinAddress : public CBase58Data
 {
 public:
     enum
@@ -294,7 +294,7 @@ public:
 
     bool Set(const CTxDestination &dest)
     {
-        return boost::apply_visitor(CblehcoinAddressVisitor(this), dest);
+        return boost::apply_visitor(CshitcoinAddressVisitor(this), dest);
     }
 
     bool IsValid() const
@@ -327,21 +327,21 @@ public:
         return fExpectTestNet == fTestNet && vchData.size() == nExpectedSize;
     }
 
-    CblehcoinAddress()
+    CshitcoinAddress()
     {
     }
 
-    CblehcoinAddress(const CTxDestination &dest)
+    CshitcoinAddress(const CTxDestination &dest)
     {
         Set(dest);
     }
 
-    CblehcoinAddress(const std::string& strAddress)
+    CshitcoinAddress(const std::string& strAddress)
     {
         SetString(strAddress);
     }
 
-    CblehcoinAddress(const char* pszAddress)
+    CshitcoinAddress(const char* pszAddress)
     {
         SetString(pszAddress);
     }
@@ -394,18 +394,18 @@ public:
     }
 };
 
-bool inline CblehcoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
-bool inline CblehcoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
-bool inline CblehcoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
+bool inline CshitcoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
+bool inline CshitcoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
+bool inline CshitcoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
 
 /** A base58-encoded secret key */
-class CblehcoinSecret : public CBase58Data
+class CshitcoinSecret : public CBase58Data
 {
 public:
     void SetSecret(const CSecret& vchSecret, bool fCompressed)
     {
         assert(vchSecret.size() == 32);
-        SetData(128 + (fTestNet ? CblehcoinAddress::PUBKEY_ADDRESS_TEST : CblehcoinAddress::PUBKEY_ADDRESS), &vchSecret[0], vchSecret.size());
+        SetData(128 + (fTestNet ? CshitcoinAddress::PUBKEY_ADDRESS_TEST : CshitcoinAddress::PUBKEY_ADDRESS), &vchSecret[0], vchSecret.size());
         if (fCompressed)
             vchData.push_back(1);
     }
@@ -424,10 +424,10 @@ public:
         bool fExpectTestNet = false;
         switch(nVersion)
         {
-            case (128 + CblehcoinAddress::PUBKEY_ADDRESS):
+            case (128 + CshitcoinAddress::PUBKEY_ADDRESS):
                 break;
 
-            case (128 + CblehcoinAddress::PUBKEY_ADDRESS_TEST):
+            case (128 + CshitcoinAddress::PUBKEY_ADDRESS_TEST):
                 fExpectTestNet = true;
                 break;
 
@@ -447,12 +447,12 @@ public:
         return SetString(strSecret.c_str());
     }
 
-    CblehcoinSecret(const CSecret& vchSecret, bool fCompressed)
+    CshitcoinSecret(const CSecret& vchSecret, bool fCompressed)
     {
         SetSecret(vchSecret, fCompressed);
     }
 
-    CblehcoinSecret()
+    CshitcoinSecret()
     {
     }
 };

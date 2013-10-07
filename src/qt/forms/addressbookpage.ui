@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="labelExplanation">
      <property name="text">
-      <string>These are your blehcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</string>
+      <string>These are your shitcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>
@@ -66,7 +66,7 @@
         <string>&amp;New Address</string>
        </property>
        <property name="icon">
-        <iconset resource="../blehcoin.qrc">
+        <iconset resource="../shitcoin.qrc">
          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
        </property>
       </widget>
@@ -80,7 +80,7 @@
         <string>&amp;Copy Address</string>
        </property>
        <property name="icon">
-        <iconset resource="../blehcoin.qrc">
+        <iconset resource="../shitcoin.qrc">
          <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
        </property>
       </widget>
@@ -91,7 +91,7 @@
         <string>Show &amp;QR Code</string>
        </property>
        <property name="icon">
-        <iconset resource="../blehcoin.qrc">
+        <iconset resource="../shitcoin.qrc">
          <normaloff>:/icons/qrcode</normaloff>:/icons/qrcode</iconset>
        </property>
       </widget>
@@ -99,13 +99,13 @@
      <item>
       <widget class="QPushButton" name="signMessage">
        <property name="toolTip">
-        <string>Sign a message to prove you own a blehcoin address</string>
+        <string>Sign a message to prove you own a shitcoin address</string>
        </property>
        <property name="text">
         <string>Sign &amp;Message</string>
        </property>
        <property name="icon">
-        <iconset resource="../blehcoin.qrc">
+        <iconset resource="../shitcoin.qrc">
          <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
        </property>
       </widget>
@@ -113,13 +113,13 @@
      <item>
       <widget class="QPushButton" name="verifyMessage">
        <property name="toolTip">
-        <string>Verify a message to ensure it was signed with a specified blehcoin address</string>
+        <string>Verify a message to ensure it was signed with a specified shitcoin address</string>
        </property>
        <property name="text">
         <string>&amp;Verify Message</string>
        </property>
        <property name="icon">
-        <iconset resource="../blehcoin.qrc">
+        <iconset resource="../shitcoin.qrc">
          <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
        </property>
       </widget>
@@ -133,7 +133,7 @@
         <string>&amp;Delete</string>
        </property>
        <property name="icon">
-        <iconset resource="../blehcoin.qrc">
+        <iconset resource="../shitcoin.qrc">
          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
        </property>
       </widget>
@@ -169,7 +169,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../blehcoin.qrc"/>
+  <include location="../shitcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

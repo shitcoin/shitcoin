@@ -64,7 +64,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
            </property>
            <property name="shortcut">
@@ -84,7 +84,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
            </property>
            <property name="shortcut">
@@ -130,7 +130,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
            </property>
            <property name="autoDefault">
@@ -145,13 +145,13 @@
          <item>
           <widget class="QPushButton" name="signMessageButton_SM">
            <property name="toolTip">
-            <string>Sign the message to prove you own this blehcoin address</string>
+            <string>Sign the message to prove you own this shitcoin address</string>
            </property>
            <property name="text">
             <string>&amp;Sign Message</string>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
            </property>
            <property name="autoDefault">
@@ -168,7 +168,7 @@
             <string>Clear &amp;All</string>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
@@ -267,7 +267,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
            </property>
            <property name="shortcut">
@@ -291,13 +291,13 @@
          <item>
           <widget class="QPushButton" name="verifyMessageButton_VM">
            <property name="toolTip">
-            <string>Verify the message to ensure it was signed with the specified blehcoin address</string>
+            <string>Verify the message to ensure it was signed with the specified shitcoin address</string>
            </property>
            <property name="text">
             <string>&amp;Verify Message</string>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
            </property>
            <property name="autoDefault">
@@ -314,7 +314,7 @@
             <string>Clear &amp;All</string>
            </property>
            <property name="icon">
-            <iconset resource="../blehcoin.qrc">
+            <iconset resource="../shitcoin.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
@@ -380,7 +380,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../blehcoin.qrc"/>
+  <include location="../shitcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

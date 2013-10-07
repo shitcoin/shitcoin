@@ -59,7 +59,7 @@
           </widget>
          </item>
          <item>
-          <widget class="blehcoinAmountField" name="transactionFee"/>
+          <widget class="shitcoinAmountField" name="transactionFee"/>
          </item>
          <item>
           <spacer name="horizontalSpacer_Main">
@@ -77,12 +77,12 @@
         </layout>
        </item>
        <item>
-        <widget class="QCheckBox" name="blehcoinAtStartup">
+        <widget class="QCheckBox" name="shitcoinAtStartup">
          <property name="toolTip">
-          <string>Automatically start blehcoin after logging in to the system.</string>
+          <string>Automatically start shitcoin after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start blehcoin on system login</string>
+          <string>&amp;Start shitcoin on system login</string>
          </property>
         </widget>
        </item>
@@ -119,7 +119,7 @@
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
-          <string>Automatically open the blehcoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+          <string>Automatically open the shitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
@@ -129,7 +129,7 @@
        <item>
         <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
-          <string>Connect to the blehcoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
+          <string>Connect to the shitcoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
          <property name="text">
           <string>&amp;Connect through SOCKS proxy:</string>
@@ -303,7 +303,7 @@
          <item>
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
-            <string>The user interface language can be set here. This setting will take effect after restarting blehcoin.</string>
+            <string>The user interface language can be set here. This setting will take effect after restarting shitcoin.</string>
            </property>
           </widget>
          </item>
@@ -336,7 +336,7 @@
        <item>
         <widget class="QCheckBox" name="displayAddresses">
          <property name="toolTip">
-          <string>Whether to show blehcoin addresses in the transaction list or not.</string>
+          <string>Whether to show shitcoin addresses in the transaction list or not.</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
@@ -445,9 +445,9 @@
    <header>qvalidatedlineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>blehcoinAmountField</class>
+   <class>shitcoinAmountField</class>
    <extends>QSpinBox</extends>
-   <header>blehcoinamountfield.h</header>
+   <header>shitcoinamountfield.h</header>
   </customwidget>
   <customwidget>
    <class>QValueComboBox</class>

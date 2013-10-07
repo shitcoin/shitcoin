@@ -1,7 +1,7 @@
 #include "guiutil.h"
-#include "blehcoinaddressvalidator.h"
+#include "shitcoinaddressvalidator.h"
 #include "walletmodel.h"
-#include "blehcoinunits.h"
+#include "shitcoinunits.h"
 #include "util.h"
 #include "init.h"
 
@@ -52,7 +52,7 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
-QFont blehcoinAddressFont()
+QFont shitcoinAddressFont()
 {
     QFont font("Monospace");
     font.setStyleHint(QFont::TypeWriter);
@@ -61,9 +61,9 @@ QFont blehcoinAddressFont()
 
 void setupAddressWidget(QLineEdit *widget, QWidget *parent)
 {
-    widget->setMaxLength(blehcoinAddressValidator::MaxAddressLength);
-    widget->setValidator(new blehcoinAddressValidator(parent));
-    widget->setFont(blehcoinAddressFont());
+    widget->setMaxLength(shitcoinAddressValidator::MaxAddressLength);
+    widget->setValidator(new shitcoinAddressValidator(parent));
+    widget->setFont(shitcoinAddressFont());
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -75,9 +75,9 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseblehcoinURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseshitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    if(uri.scheme() != QString("blehcoin"))
+    if(uri.scheme() != QString("shitcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -102,7 +102,7 @@ bool parseblehcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!blehcoinUnits::parse(blehcoinUnits::BTC, i->second, &rv.amount))
+                if(!shitcoinUnits::parse(shitcoinUnits::BTC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -120,18 +120,18 @@ bool parseblehcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseblehcoinURI(QString uri, SendCoinsRecipient *out)
+bool parseshitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert blehcoin:// to blehcoin:
+    // Convert shitcoin:// to shitcoin:
     //
-    //    Cannot handle this later, because blehcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because shitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("blehcoin://"))
+    if(uri.startsWith("shitcoin://"))
     {
-        uri.replace(0, 10, "blehcoin:");
+        uri.replace(0, 10, "shitcoin:");
     }
     QUrl uriInstance(uri);
-    return parseblehcoinURI(uriInstance, out);
+    return parseshitcoinURI(uriInstance, out);
 }
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
@@ -272,12 +272,12 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "blehcoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "shitcoin.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for blehcoin.lnk
+    // check for shitcoin.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -354,7 +354,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "blehcoin.desktop";
+    return GetAutostartDir() / "shitcoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -392,10 +392,10 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a blehcoin.desktop file to the autostart directory:
+        // Write a shitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=blehcoin\n";
+        optionFile << "Name=shitcoin\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -416,10 +416,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("blehcoin-Qt") + " " + tr("version") + " " +
+    header = tr("shitcoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  blehcoin-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  shitcoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -428,7 +428,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("blehcoin-Qt"));
+    setWindowTitle(tr("shitcoin-Qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));

@@ -16,7 +16,7 @@
 
 * perform gitian builds
 
-  * From a directory containing the blehcoin source, gitian-builder and gitian.sigs
+  * From a directory containing the shitcoin source, gitian-builder and gitian.sigs
    export SIGNER=(your gitian key, ie bluematt, sipa, etc)
    export VERSION=0.5.1
    cd ./gitian-builder
@@ -32,44 +32,44 @@
    wget 'http://downloads.sourceforge.net/project/boost/boost/1.47.0/boost_1_47_0.tar.bz2'
    wget 'http://download.qt.nokia.com/qt/source/qt-everywhere-opensource-src-4.7.4.tar.gz'
    cd ..
-   ./bin/gbuild ../blehcoin/contrib/gitian-descriptors/boost-win32.yml
+   ./bin/gbuild ../shitcoin/contrib/gitian-descriptors/boost-win32.yml
    cp build/out/boost-win32-1.47.0-gitian.zip inputs/
-   ./bin/gbuild ../blehcoin/contrib/gitian-descriptors/qt-win32.yml
+   ./bin/gbuild ../shitcoin/contrib/gitian-descriptors/qt-win32.yml
    cp build/out/qt-win32-4.7.4-gitian.zip inputs/
-   ./bin/gbuild ../blehcoin/contrib/gitian-descriptors/deps-win32.yml
-   cp build/out/blehcoin-deps-0.0.3.zip inputs/
+   ./bin/gbuild ../shitcoin/contrib/gitian-descriptors/deps-win32.yml
+   cp build/out/shitcoin-deps-0.0.3.zip inputs/
 
-  * Build blehcoind and blehcoin-qt on Linux32, Linux64, and Win32:
-   ./bin/gbuild --commit blehcoin=v${VERSION} ../blehcoin/contrib/gitian-descriptors/gitian.yml
-   ./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../blehcoin/contrib/gitian-descriptors/gitian.yml
+  * Build shitcoind and shitcoin-qt on Linux32, Linux64, and Win32:
+   ./bin/gbuild --commit shitcoin=v${VERSION} ../shitcoin/contrib/gitian-descriptors/gitian.yml
+   ./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../shitcoin/contrib/gitian-descriptors/gitian.yml
    pushd build/out
-   zip -r blehcoin-${VERSION}-linux-gitian.zip *
-   mv blehcoin-${VERSION}-linux-gitian.zip ../../
+   zip -r shitcoin-${VERSION}-linux-gitian.zip *
+   mv shitcoin-${VERSION}-linux-gitian.zip ../../
    popd
-   ./bin/gbuild --commit blehcoin=v${VERSION} ../blehcoin/contrib/gitian-descriptors/gitian-win32.yml
-   ./bin/gsign --signer $SIGNER --release ${VERSION}-win32 --destination ../gitian.sigs/ ../blehcoin/contrib/gitian-descriptors/gitian-win32.yml
+   ./bin/gbuild --commit shitcoin=v${VERSION} ../shitcoin/contrib/gitian-descriptors/gitian-win32.yml
+   ./bin/gsign --signer $SIGNER --release ${VERSION}-win32 --destination ../gitian.sigs/ ../shitcoin/contrib/gitian-descriptors/gitian-win32.yml
    pushd build/out
-   zip -r blehcoin-${VERSION}-win32-gitian.zip *
-   mv blehcoin-${VERSION}-win32-gitian.zip ../../
+   zip -r shitcoin-${VERSION}-win32-gitian.zip *
+   mv shitcoin-${VERSION}-win32-gitian.zip ../../
    popd
 
   Build output expected:
-  1. linux 32-bit and 64-bit binaries + source (blehcoin-${VERSION}-linux-gitian.zip)
-  2. windows 32-bit binary, installer + source (blehcoin-${VERSION}-win32-gitian.zip)
+  1. linux 32-bit and 64-bit binaries + source (shitcoin-${VERSION}-linux-gitian.zip)
+  2. windows 32-bit binary, installer + source (shitcoin-${VERSION}-win32-gitian.zip)
   3. Gitian signatures (in gitian.sigs/${VERSION}[-win32]/(your gitian key)/
 
 * repackage gitian builds for release as stand-alone zip/tar/installer exe
 
   * Linux .tar.gz:
-   unzip blehcoin-${VERSION}-linux-gitian.zip -d blehcoin-${VERSION}-linux
-   tar czvf blehcoin-${VERSION}-linux.tar.gz blehcoin-${VERSION}-linux
-   rm -rf blehcoin-${VERSION}-linux
+   unzip shitcoin-${VERSION}-linux-gitian.zip -d shitcoin-${VERSION}-linux
+   tar czvf shitcoin-${VERSION}-linux.tar.gz shitcoin-${VERSION}-linux
+   rm -rf shitcoin-${VERSION}-linux
 
   * Windows .zip and setup.exe:
-   unzip blehcoin-${VERSION}-win32-gitian.zip -d blehcoin-${VERSION}-win32
-   mv blehcoin-${VERSION}-win32/blehcoin-*-setup.exe .
-   zip -r blehcoin-${VERSION}-win32.zip blehcoin-${VERSION}-win32
-   rm -rf blehcoin-${VERSION}-win32
+   unzip shitcoin-${VERSION}-win32-gitian.zip -d shitcoin-${VERSION}-win32
+   mv shitcoin-${VERSION}-win32/shitcoin-*-setup.exe .
+   zip -r shitcoin-${VERSION}-win32.zip shitcoin-${VERSION}-win32
+   rm -rf shitcoin-${VERSION}-win32
 
 * perform Mac build
   See this blog post for how Gavin set up his build environment to build the OSX
@@ -83,10 +83,10 @@
   make
   export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
   T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
-  python2.7 contrib/macdeploy/macdeployqtplus blehcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+  python2.7 contrib/macdeploy/macdeployqtplus shitcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
  Build output expected:
-  blehcoin-Qt.dmg
+  shitcoin-Qt.dmg
 
 * upload builds to SourceForge
 

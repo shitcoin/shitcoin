@@ -1,7 +1,7 @@
 src/*.exe
-src/blehcoin
-src/blehcoind
-src/test_blehcoin
+src/shitcoin
+src/shitcoind
+src/test_shitcoin
 src/build.h
 .*.swp
 *.*~*
@@ -10,12 +10,12 @@ src/build.h
 *.orig
 *.o
 *.patch
-.blehcoin
-.blehcoin
+.shitcoin
+.shitcoin
 #compilation and Qt preprocessor part
 *.qm
 Makefile
-blehcoin-qt
+shitcoin-qt
 #resources cpp
 qrc_*.cpp
 #qt creator
