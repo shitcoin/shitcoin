@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Blehcoin: a SHA256D version of 'foocoin'
 
 
@@ -42,3 +43,9 @@ Plug those values in here:
 /src/main.h LINE 50 static const uint256 hashGenesisBlockOfficial("0x");
 
 Now recompile with the new .cpp and .h and your SHA256D coin is ready to go!
+=======
+shitcoin
+========
+
+the shittiest cryptocoin ever created
+>>>>>>> 42770c24565bb414f2b8db9bb7bcb40f28a1792a
