@@ -144,7 +144,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Unconfirmed:</string>
+             <string>Fermenting:</string>
             </property>
            </widget>
           </item>
@@ -160,7 +160,7 @@
              <cursorShape>IBeamCursor</cursorShape>
             </property>
             <property name="toolTip">
-             <string>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</string>
+             <string>Total amount of shit that has yet to be confirmed, and do not yet count toward the capacity of the toilet.</string>
             </property>
             <property name="text">
              <string notr="true">0 BOC</string>
@@ -173,7 +173,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="labelImmatureText">
             <property name="text">
-             <string>Immature:</string>
+             <string>Large Intestine:</string>
             </property>
            </widget>
           </item>
@@ -186,7 +186,7 @@
              </font>
             </property>
             <property name="toolTip">
-             <string>Mined balance that has not yet matured</string>
+             <string>Small Intestine</string>
             </property>
             <property name="text">
              <string notr="true">0 BOC</string>
@@ -199,14 +199,14 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Number of transactions:</string>
+             <string>Number of dumps:</string>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
            <widget class="QLabel" name="labelNumTransactions">
             <property name="toolTip">
-             <string>Total number of transactions in wallet</string>
+             <string>Total amount of shit in toilet</string>
             </property>
             <property name="text">
              <string notr="true">0</string>
@@ -266,7 +266,7 @@
           <item>
            <widget class="QLabel" name="labelTransactionsStatus">
             <property name="toolTip">
-             <string>The displayed information may be out of date. Your wallet automatically synchronizes with the shitcoin network after a connection is established, but this process has not completed yet.</string>
+             <string>The displayed information may be out of date. Get your shit together, it's out of sync.</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QLabel { color: red; }</string>

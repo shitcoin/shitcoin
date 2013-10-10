@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About shitcoin</string>
+   <string>shitcoin: what the fuck is this shit?</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -91,8 +91,8 @@
         <cursorShape>IBeamCursor</cursorShape>
        </property>
        <property name="text">
-        <string>Copyright © 2013 The Shitcoin Foundation
-         http://www.shitcoin.com</string>
+        <string>Copyright © 2013 The Shitheads
+         http://www.muddafuddapoopoo.com</string>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -106,9 +106,9 @@
        </property>
        <property name="text">
         <string>
-This is experimental software, if you don't like it--you can eat the peanuts outta my shit.
+This is bullshit software, if you don't like it--you can eat the peanuts outta my shit.
 
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php. If you don't view it i i don't give a shit!
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</string>
        </property>
