@@ -943,7 +943,7 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
     int64 nSubsidy = 500000000 * COIN;
-    int64 nMinimumsubsidy = 1000000 * COIN;
+    int64 nMinimumsubsidy = 1000000;
 
     // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 2000);
