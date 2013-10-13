@@ -17,7 +17,7 @@
 using namespace std;
 using namespace boost;
 
-const bool IsCalculatingGenesisBlockHash = true;
+const bool IsCalculatingGenesisBlockHash = false;
 
 //
 // Global state
@@ -940,11 +940,11 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
     return pblockOrphan->hashPrevBlock;
 }
 
-int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
+long long int GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
-    int64 nSubsidy = 500000000 * COIN;
-    int64 nMinimumsubsidy = 1000000;
-    int64 nMinimumsubsidy2 = 3000000;
+    long long int nSubsidy = 500000000 * COIN;
+    long int nMinimumsubsidy = 1000000;
+    long int nMinimumsubsidy2 = 3000000;
 
     // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 2000);
