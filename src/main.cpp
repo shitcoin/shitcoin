@@ -942,19 +942,19 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 
 long long int GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
-    long long int nSubsidy = 500000000 * COIN;
-    long int nMinimumsubsidy = 1000000;
-    long int nMinimumsubsidy2 = 3000000;
+    int64 nSubsidy = 500000000 * COIN;
+    int64 nMinimumsubsidy = 1000000 * COIN;
+    int64 nMinimumsubsidy2 = 3000000 * COIN;
 
     // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 2000);
 	if (nHeight < 30000 && nSubsidy < nMinimumsubsidy)
 	{ 
-	    nSubsidy = nMinimumsubsidy * COIN;
+	    nSubsidy = nMinimumsubsidy;
     }
     else if (nHeight > 30000 && nSubsidy < nMinimumsubsidy2)
     {
-        nSubsidy = nMinimumsubsidy2 * COIN;
+        nSubsidy = nMinimumsubsidy2;
     }
     else if (nHeight > 75000) 
     {
@@ -964,10 +964,11 @@ long long int GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
     {
         nSubsidy = 1111177770000 * COIN;
     }
-    else if (nSubsidy < nMinimumsubsidy)
-    {
-	nSubsidy = nMinimumsubsidy * COIN;
-    }
+	else if (nSubsidy < nMinimumsubsidy)
+	{
+		nSubsidy = nMinimumsubsidy;
+	}
+	
     return nSubsidy + nFees;
 }
 // miner's coin stake reward based on nBits and coin age spent (coin-days)
