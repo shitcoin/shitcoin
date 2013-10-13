@@ -56,7 +56,7 @@ const std::string CLIENT_NAME("shitcoin");
 
 #ifndef BUILD_DATE
 #    ifdef GIT_COMMIT_DATE
-#        define BUILD_DATE "July 4, 2013"
+#        define BUILD_DATE "Julytober 77, 2099"
 #    else
 #        define BUILD_DATE __DATE__ ", " __TIME__
 #    endif
