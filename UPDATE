@@ -1,3 +1,8 @@
+Version 1.9.11
+- Added checkpoint
+- Fixed reward wrapping bug
+- Fixed some text strings
+
 Version 1.6 Download:
 windows setup exe: http://sdrv.ms/12pywCy
 .7z file: http://sdrv.ms/12pyESx

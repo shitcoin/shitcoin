@@ -947,7 +947,9 @@ long long int GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
     int64 nMinimumsubsidy2 = 3000000 * COIN;
 
     // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 2000);
+    if (nHeight < 128000) {
+        nSubsidy >>= (nHeight / 2000);
+    }
 	if (nHeight < 30000 && nSubsidy < nMinimumsubsidy)
 	{ 
 	    nSubsidy = nMinimumsubsidy;
