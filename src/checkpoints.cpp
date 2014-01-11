@@ -25,7 +25,7 @@ typedef std::map<int, uint256> MapCheckpoints;
 static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
         ( 0, hashGenesisBlockOfficial )
-	( 543000, uint256("0x000001dd88b74a54bd9191683af0fa7641bf9a351c311fab913387890094c7db") )
+	( 542999, uint256("0x000001dd88b74a54bd9191683af0fa7641bf9a351c311fab913387890094c7db") )
         ;
 
 
